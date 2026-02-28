@@ -50,10 +50,6 @@
             .video-container {
                 @apply relative overflow-hidden rounded-xl;
             }
-            .video-container::before {
-                content: '';
-                @apply absolute top-0 left-0 w-full h-full bg-black/30;
-            }
             .video-play-icon {
                 @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-primary/80 text-white rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-110;
             }
@@ -117,6 +113,7 @@
                 <div class="md:flex">
                     <div class="md:w-1/2 video-container">
                         <video 
+                            id="video1"
                             src="小车.mp4" 
                             alt="物流小车热力图演示" 
                             class="w-full h-auto md:h-[370px] object-cover"
@@ -125,7 +122,7 @@
                         >
                             您的浏览器不支持视频播放
                         </video>
-                        <div class="video-play-icon">
+                        <div class="video-play-icon" id="playBtn1">
                             <i class="fa fa-play text-2xl"></i>
                         </div>
                     </div>
@@ -155,6 +152,7 @@
                     </div>
                     <div class="md:w-1/2 video-container">
                         <video 
+                            id="video2"
                             src="热力图.mp4" 
                             alt="代码更新演示" 
                             class="w-full h-auto md:h-[370px] object-cover"
@@ -163,7 +161,7 @@
                         >
                             您的浏览器不支持视频播放
                         </video>
-                        <div class="video-play-icon">
+                        <div class="video-play-icon" id="playBtn2">
                             <i class="fa fa-play text-2xl"></i>
                         </div>
                     </div>
@@ -207,17 +205,38 @@
             }
         });
         
-        // 视频播放图标交互
+        // 新增：视频同步播放核心功能
         document.addEventListener('DOMContentLoaded', function() {
-            const playIcons = document.querySelectorAll('.video-play-icon');
-            playIcons.forEach(icon => {
-                icon.addEventListener('click', function() {
-                    const video = this.parentElement.querySelector('video');
-                    video.play();
-                });
+            // 获取两个视频和播放按钮
+            const video1 = document.getElementById('video1');
+            const video2 = document.getElementById('video2');
+            const playBtn1 = document.getElementById('playBtn1');
+            const playBtn2 = document.getElementById('playBtn2');
+            
+            // 定义同步播放函数
+            function playAllVideos() {
+                video1.play();
+                video2.play();
+            }
+            
+            // 点击播放按钮时同步播放
+            playBtn1.addEventListener('click', playAllVideos);
+            playBtn2.addEventListener('click', playAllVideos);
+            
+            // 监听视频原生播放控件的播放事件（点击视频自带的播放按钮也同步）
+            video1.addEventListener('play', function() {
+                if (video2.paused) { // 避免重复触发
+                    video2.play();
+                }
             });
             
-            // 图片加载状态处理
+            video2.addEventListener('play', function() {
+                if (video1.paused) { // 避免重复触发
+                    video1.play();
+                }
+            });
+            
+            // 原有图片加载逻辑保留
             const images = document.querySelectorAll('img');
             images.forEach(img => {
                 // 添加加载状态
