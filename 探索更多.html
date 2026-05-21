@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新型物流模式 - 天枢智行</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#409EFF',
+                        'primary-dark': '#2C7BE5',
+                        secondary: '#00C2FF',
+                        accent: '#9D4EDD',
+                        'tech-gray': '#1E293B',
+                        'tech-light': '#F8FAFC'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow': '0 0 15px rgba(64, 158, 255, 0.4)',
+                        'glow-lg': '0 0 25px rgba(64, 158, 255, 0.6)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow { text-shadow: 0 2px 10px rgba(64, 158, 255, 0.5); }
+            .bg-grid {
+                background-image: linear-gradient(rgba(64, 158, 255, 0.08) 1px, transparent 1px),
+                                  linear-gradient(90deg, rgba(64, 158, 255, 0.08) 1px, transparent 1px);
+                background-size: 30px 30px;
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 20px rgba(0,0,0,0.1), 0 0 15px rgba(64, 158, 255, 0.2);
+            }
+        }
+    </style>
+    <style>
+        html { scroll-behavior: smooth; }
+        .navbar-scrolled {
+            background-color: rgba(30, 41, 59, 0.95) !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 0 15px rgba(64, 158, 255, 0.3);
+        }
+        .animated-underline {
+            position: relative; text-decoration: none; padding-bottom: 4px;
+        }
+        .animated-underline:after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: 0; left: 0; background-color: #409EFF; transition: width 0.3s ease;
+        }
+        .animated-underline:hover:after { width: 100%; }
+    </style>
+</head>
+<body class="font-inter bg-tech-light text-gray-800 bg-grid min-h-screen flex flex-col">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-tech-gray border-b border-gray-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-tech font-bold text-secondary flex items-center gap-2">
+                    <img src="AIot的logo.png" alt="Logo" width="32" height="32" class="rounded-full">
+                    <span class="text-shadow">天枢智行</span>
+                </a>
+                <div class="hidden md:flex items-center gap-6 text-gray-300 font-medium">
+                    <a href="index.html" class="animated-underline hover:text-white transition-colors">首页</a>
+                    <a href="技术展示.html" class="animated-underline hover:text-white transition-colors">技术展示</a>
+                    <a href="探索更多.html" class="animated-underline text-white font-semibold">新型模式</a>
+                    <a href="团队介绍.html" class="animated-underline hover:text-white transition-colors">团队介绍</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-white focus:outline-none"><i class="fa fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-tech-gray border-t border-gray-800 px-4 py-3 space-y-3">
+            <a href="index.html" class="block text-gray-300 hover:text-white pl-2">首页</a>
+            <a href="技术展示.html" class="block text-gray-300 hover:text-white pl-2">技术展示</a>
+            <a href="探索更多.html" class="block text-white font-medium pl-2 border-l-2 border-primary">新型模式</a>
+            <a href="团队介绍.html" class="block text-gray-300 hover:text-white pl-2">团队介绍</a>
+        </div>
+    </nav>
+
+    <header class="pt-36 pb-12 bg-gradient-to-br from-primary/10 to-secondary/5 relative">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-tech font-bold text-tech-gray mb-4 text-shadow">行业痛点与新型物流破局</h1>
+            <p class="text-gray-500 text-sm max-w-xl mx-auto">对比传统固定运输与高昂人工，展现低成本分布式仓储小车的革命性优势。</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-6 py-12 flex-grow">
+        <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden mb-12">
+            <div class="bg-tech-gray px-6 py-4 border-b border-gray-800">
+                <h2 class="text-base font-tech font-bold text-white flex items-center gap-2">
+                    <i class="fa fa-exchange text-secondary"></i> 现代仓储模式核心指标对比横评
+                </h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[600px] text-sm">
+                    <thead>
+                        <tr class="bg-tech-light text-tech-gray font-bold border-b border-gray-200">
+                            <th class="p-4">转运模式</th>
+                            <th class="p-4">资金成本投入</th>
+                            <th class="p-4">路径柔性与灵活性</th>
+                            <th class="p-4">综合运维效率</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 text-gray-600">
+                        <tr>
+                            <td class="p-4 font-semibold text-gray-900 bg-gray-50/50">传统人工搬运</td>
+                            <td class="p-4 text-red-500 font-medium">长期人力、管理成本支出高昂</td>
+                            <td class="p-4">受人员疲劳及生理动线随机限制</td>
+                            <td class="p-4">极易出错，夜间高强度环境表现差</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-gray-900 bg-gray-50/50">传统输送带流水线</td>
+                            <td class="p-4 text-red-500 font-medium">一次性非标改造成本过高</td>
+                            <td class="p-4">极差，物理结构锁死硬性动线</td>
+                            <td class="p-4">单点故障将导致全线彻底瘫痪</td>
+                        </tr>
+                        <tr class="bg-primary/5 font-semibold text-gray-900">
+                            <td class="p-4 text-primary font-bold"><i class="fa fa-star text-amber-400 mr-1"></i> 天枢智行小车</td>
+                            <td class="p-4 text-emerald-600">极低，支持模块化按需部署</td>
+                            <td class="p-4 text-emerald-600">极高，动态避障路由云端重构</td>
+                            <td class="p-4 text-emerald-600">高并发集群控制，故障无感替换</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 card-hover">
+                <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4"><i class="fa fa-map-signs"></i></div>
+                <h3 class="text-lg font-bold text-tech-gray mb-2">柔性路径规划大脑</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">
+                    摆脱了传统工业大厂对导轨、地标磁条的重度依赖。天枢智行小车利用车身搭载的先进避障感知单元，结合软硬件底层算法，能在工厂突发障碍物时实时重新规划行进曲线。
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 card-hover">
+                <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary mb-4"><i class="fa fa-line-chart"></i></div>
+                <h3 class="text-lg font-bold text-tech-gray mb-2">分布式低成本演进</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">
+                    中小微企业无需承担动辄数百万的仓储自动化输送带硬性改造费用。通过天枢智行的轻量化分布式架构，实现“按需增减车辆”，大大减轻初始资金回笼周期压力。
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-tech-gray text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-6 text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-tech font-bold mb-4 text-secondary"><i class="fa fa-cube mr-2"></i>天枢智行</h3>
+                    <p class="text-gray-400 leading-relaxed">面向未来的 AIoT 新型智能物流研发项目，整合顶尖校企合作生态。</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-300">项目快捷导航</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white">&rarr; 首页</a></li>
+                        <li><a href="技术展示.html" class="hover:text-white">&rarr; 核心技术展示</a></li>
+                        <li><a href="团队介绍.html" class="hover:text-white">&rarr; 团队专家与企业合作</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-300">联系我们</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa fa-user mr-2 text-primary"></i> 负责人：陈睿阳</li>
+                        <li><i class="fa fa-phone mr-2 text-primary"></i> +86 159 0217 4179</li>
+                        <li><i class="fa fa-envelope mr-2 text-primary"></i> cn201056@qq.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-xs text-gray-500">
+                <p>&copy; 2026 天枢智行 智能开发交付团队. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            window.scrollY > 40 ? navbar.classList.add('navbar-scrolled') : navbar.classList.remove('navbar-scrolled');
+        });
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>团队介绍 | 指导老师</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // 淡蓝色主色调（科技风）
+            primary: '#409EFF',
+            // 科技蓝（深色）
+            'primary-dark': '#2C7BE5',
+            // 科技青蓝（辅助色）
+            secondary: '#00C2FF',
+            // 科技紫（强调色）
+            accent: '#9D4EDD',
+            // 科技灰（背景和文本）
+            'tech-gray': '#1E293B',
+            'tech-light': '#F8FAFC'
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+            tech: ['Orbitron', 'sans-serif'] // 科技感字体
+          },
+          boxShadow: {
+            'glow': '0 0 15px rgba(64, 158, 255, 0.4)',
+            'glow-lg': '0 0 25px rgba(64, 158, 255, 0.6)'
+          }
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow { text-shadow: 0 2px 10px rgba(64, 158, 255, 0.5); }
+      .bg-grid {
+        background-image: linear-gradient(rgba(64, 158, 255, 0.08) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(64, 158, 255, 0.08) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.1), 0 0 15px rgba(64, 158, 255, 0.3);
+      }
+    }
+  </style>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { animation: fadeIn 0.8s ease forwards; opacity: 0; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .navbar-scrolled {
+      background-color: rgba(30, 41, 59, 0.95) !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 0 15px rgba(64, 158, 255, 0.3);
+    }
+    .animated-underline {
+      position: relative; text-decoration: none; padding-bottom: 4px;
+    }
+    .animated-underline:after {
+      content: ''; position: absolute; width: 0; height: 2px;
+      bottom: 0; left: 0; background-color: #409EFF; transition: width 0.3s ease;
+    }
+    .animated-underline:hover:after { width: 100%; }
+  </style>
+</head>
+<body class="font-inter bg-tech-light text-gray-800 bg-grid min-h-screen flex flex-col">
+
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-tech-gray border-b border-gray-800">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="text-xl font-tech font-bold text-secondary flex items-center gap-2">
+            <img src="AIot的logo.png" alt="Logo" width="32" height="32" class="rounded-full">
+            <span class="text-shadow">天枢智行</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-gray-300 font-medium">
+            <a href="index.html" class="animated-underline hover:text-white transition-colors">首页</a>
+            <a href="技术展示.html" class="animated-underline hover:text-white transition-colors">技术展示</a>
+            <a href="探索更多.html" class="animated-underline hover:text-white transition-colors">新型模式</a>
+            <a href="团队介绍.html" class="animated-underline text-white font-semibold">团队介绍</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-white focus:outline-none"><i class="fa fa-bars text-xl"></i></button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-tech-gray border-t border-gray-800 px-4 py-3 space-y-3">
+        <a href="index.html" class="block text-gray-300 hover:text-white pl-2">首页</a>
+        <a href="技术展示.html" class="block text-gray-300 hover:text-white pl-2">技术展示</a>
+        <a href="探索更多.html" class="block text-gray-300 hover:text-white pl-2">新型模式</a>
+        <a href="团队介绍.html" class="block text-white font-medium pl-2 border-l-2 border-primary">团队介绍</a>
+    </div>
+  </nav>
+
+  <header class="pt-36 pb-12 bg-gradient-to-br from-primary/10 to-secondary/5 relative">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-4xl font-tech font-bold text-tech-gray mb-4 text-shadow">核心技术团队与专家指导</h1>
+      <p class="text-gray-500 text-sm max-w-xl mx-auto">我们在专业导师的学术引领与行业领先伙伴的技术协同下，致力打破物联网搬运边界。</p>
+    </div>
+  </header>
+
+  <section class="container mx-auto px-4 md:px-6 py-12">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl font-tech font-bold text-tech-gray mb-2">核心技术团队</h2>
+      <p class="text-gray-400 text-xs">追求卓越，具备硬核软硬件协同攻关与资源调配能力</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-primary/10 fade-in">
+        <div class="h-60 bg-gray-100 overflow-hidden"><img src="qhc.png" alt="齐海程" class="w-full h-full object-cover"></div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-tech-gray mb-1">齐海程</h3>
+          <p class="text-primary text-xs font-semibold mb-3">团队负责人</p>
+          <div class="text-gray-500 text-xs space-y-1.5 border-t pt-3">
+            <p>• 计算机世家，拥有广袤的相关人脉和对相关市场的熟知度</p>
+            <p>• 全栈开发专家，精通多种技术栈</p>
+            <p>• 中国国际大学生创新大赛职教赛道上海赛区 <span class="text-amber-600 font-medium">银奖</span></p>
+            <p>• 拥有官方颁发的 <span class="text-primary font-medium">人工智能数据标注师</span> 职业技能证书</p>
+            <p>• “同立方杯”全国职业院校自动化产线装调仿真技能大赛 <span class="text-amber-600 font-medium">三等奖</span></p>
+            <p>• 上海市创新创意大赛 <span class="text-amber-600 font-medium">优胜奖</span></p>
+            <p>• 利用自身资源、能力优势全力打造 AIoT 团队</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-primary/10 fade-in">
+        <div class="h-60 bg-gray-100 overflow-hidden"><img src="神.png" alt="陈睿阳" class="w-full h-full object-cover"></div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-tech-gray mb-1">陈睿阳</h3>
+          <p class="text-primary text-xs font-semibold mb-3">技术总监</p>
+          <div class="text-gray-500 text-xs space-y-1.5 border-t pt-3">
+            <p>• 全栈开发专家，精通多种数据互联技术栈与底层控制流</p>
+            <p>• 中国国际大学生创新大赛职教赛道上海赛区 <span class="text-amber-600 font-medium">银奖</span></p>
+            <p>• 上海市创新创意大赛 <span class="text-amber-600 font-medium">铜奖</span></p>
+            <p>• 拥有官方颁发的 <span class="text-primary font-medium">人工智能数据标注师</span> 职业技能证书</p>
+            <p>• 拥有官方颁发的 <span class="text-primary font-medium">人工智能训练师</span> 职业技能证书</p>
+            <p>• 拥有专业机构认证的 <span class="text-primary font-medium">前端工程师</span> 证书</p>
+            <p>• 荣获市级计算机操作竞赛 <span class="text-amber-600 font-medium">二等奖</span></p>
+            <p>• 核心参加“同立方杯”第四届自动化产线技能赛</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-primary/10 fade-in">
+        <div class="h-60 bg-gray-100 overflow-hidden"><img src="lzg.png" alt="刘子铉" class="w-full h-full object-cover"></div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-tech-gray mb-1">刘子铉</h3>
+          <p class="text-primary text-xs font-semibold mb-3">后勤主任 / 安全运维</p>
+          <div class="text-gray-500 text-xs space-y-1.5 border-t pt-3">
+            <p>• 中国国际大学生创新大赛职教赛道上海赛区 <span class="text-amber-600 font-medium">银奖</span></p>
+            <p>• 考取并持有官方 <span class="text-primary font-medium">高级网联车安全员</span> 职业资格证书</p>
+            <p>• 拥有官方颁发的 <span class="text-primary font-medium">人工智能数据标注师</span> 职业技能证书</p>
+            <p>• 荣获市级计算机操作竞赛 <span class="text-amber-600 font-medium">三等奖</span></p>
+            <p>• 拥有官方认可的 <span class="text-emerald-600 font-medium">优秀志愿者证书</span></p>
+            <p>• 深度全程参与“同立方杯”第四届全国职业院校自动化产线技能大赛</p>
+            <p>• 核心负责互联网+创新创业大赛团队后勤资产与资产安全流转</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-primary/10 fade-in">
+        <div class="h-60 bg-gray-100 overflow-hidden"><img src="yyf.png" alt="杨宇凡" class="w-full h-full object-cover"></div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-tech-gray mb-1">杨宇凡</h3>
+          <p class="text-primary text-xs font-semibold mb-3">产品经理</p>
+          <div class="text-gray-500 text-xs space-y-1.5 border-t pt-3">
+            <p>• 中国国际大学生创新大赛职教赛道上海赛区 <span class="text-amber-600 font-medium">银奖</span></p>
+            <p>• 斩获上海市创新创意大赛 <span class="text-amber-600 font-medium">优胜奖</span> 核心主力</p>
+            <p>• 拥有官方颁发的 <span class="text-primary font-medium">人工智能数据标注师</span> 职业技能证书</p>
+            <p>• 长期在班级内主责担任班长，组织协调及宣讲能力极为突出</p>
+            <p>• 负责将复杂的软硬件技术架构转化为直观的项目演说及路演系统</p>
+            <p>• 深度参加过“同立方杯”全国仿真赛及互联网+创新创业赛的协调管理</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-primary/10 fade-in">
+        <div class="h-60 bg-gray-100 overflow-hidden"><img src="wjy.png" alt="吴俊宇" class="w-full h-full object-cover"></div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-tech-gray mb-1">吴俊宇</h3>
+          <p class="text-primary text-xs font-semibold mb-3">市场总监</p>
+          <div class="text-gray-500 text-xs space-y-1.5 border-t pt-3">
+            <p>• 中国国际大学生创新大赛职教赛道上海赛区 <span class="text-amber-600 font-medium">银奖</span></p>
+            <p>• 中国国际大学生创新大赛职教赛道上海赛区 <span class="text-amber-600 font-medium">铜奖</span> 核心答辩</p>
+            <p>• 上海市创新创意大赛 <span class="text-amber-600 font-medium">优胜奖</span></p>
+            <p>• 曾担任班长一职，具备极强的对外业务洽谈与商务推进能力</p>
+            <p>• 长期活跃于校辩论社，商务沟通语言逻辑出色，主导对外生态拓展</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 border-t border-b border-gray-200/60 py-16">
+    <div class="container mx-auto px-4 md:px-6 max-w-5xl">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl font-tech font-bold text-tech-gray">专业指导老师</h2>
+      </div>
+      
+      <div class="space-y-8">
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col md:flex-row gap-6 items-center md:items-start">
+          <div class="w-48 h-48 md:w-56 md:h-56 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+            <img src="lsc.png" alt="李烁琛老师" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-grow text-center md:text-left">
+            <h3 class="text-xl font-bold text-tech-gray mb-2">李烁琛 老师</h3>
+            <p class="text-sm text-primary font-semibold mb-4">研究领域：机器人控制、视觉技术、系统建模仿真、双创教育</p>
+            <div class="text-gray-600 text-sm space-y-2 border-t pt-4 leading-relaxed">
+              <p>• 官方竞赛委员会专家委员 / 全国大赛专家裁判</p>
+              <p>• 创新创业教育外聘权威专家 / 多项职业技能证书核心考评员</p>
+              <p>• 主研智能控制技术、高精机器视觉、无人机非标控制算法等</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col md:flex-row gap-6 items-center md:items-start">
+          <div class="w-48 h-48 md:w-56 md:h-56 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+            <img src="lmh.png" alt="李美红老师" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-grow text-center md:text-left">
+            <h3 class="text-xl font-bold text-tech-gray mb-2">李美红 老师</h3>
+            <p class="text-sm text-primary font-semibold mb-4">研究领域：产品战略专家、优秀提案孵化</p>
+            <div class="text-gray-600 text-sm space-y-2 border-t pt-4 leading-relaxed">
+              <p>• 上海市西南工程学校卓越资深 <span class="text-blue-600 font-medium">“双师型”</span> 核心教师</p>
+              <p>• 倾力辅导并荣获第三届上海市“双碳”提案 <span class="text-amber-600 font-medium">特等奖</span> 优秀指导教师</p>
+              <p>• 2024上海市大学生创新创业大赛（职教赛道）<span class="text-amber-600 font-medium">金奖</span> 及优秀指导教师</p>
+              <p>• 第十届上海市职业院校 student 创新创意大赛 <span class="text-amber-600 font-medium">铜奖</span> 优秀导师 / 上海市“优秀班主任”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-4 md:px-6 py-16 max-w-5xl">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl font-tech font-bold text-tech-gray mb-2">企业合作伙伴</h2>
+      <p class="text-gray-400 text-xs">通过优势互补与资源共享，共同加速产业级成果落地转化</p>
+    </div>
+    
+    <div class="space-y-6">
+      <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col sm:flex-row gap-6 items-center">
+        <div class="w-40 h-28 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+          <img src="智能科技公司.jpg" alt="棣欧智能" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-tech-gray mb-1">上海棣欧智能科技有限公司</h3>
+          <p class="text-xs text-primary mb-2 font-medium">人工智能深度开发与技术服务</p>
+          <p class="text-sm text-gray-500 leading-relaxed">位于上海市闵行区鹤庆路，专注于计算机、生物、通讯科技领域底层技术研发，为小车多源感知提供强有力的计算架构支撑。</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col sm:flex-row gap-6 items-center">
+        <div class="w-40 h-28 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+          <img src="孟泰.jpg" alt="孟泰环保" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-tech-gray mb-1">上海孟泰环保工程有限公司</h3>
+          <p class="text-xs text-primary mb-2 font-medium">工业机器人系统集成应用</p>
+          <p class="text-sm text-gray-500 leading-relaxed">坐落于上海市杨浦区贵阳路，专精于高精工程管理服务、通用机械加工、工业机器人运行维护，为项目硬件演进提供坚实的环境化调试保障。</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col sm:flex-row gap-6 items-center">
+        <div class="w-40 h-28 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+          <img src="机械公司.jpg" alt="明佳机械" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-tech-gray mb-1">上海明佳机械有限公司</h3>
+          <p class="text-xs text-primary mb-2 font-medium">高精物理底盘与冷作钣金定制</p>
+          <p class="text-sm text-gray-500 leading-relaxed">位于上海市奉贤区奉城镇东街，属于国内高精密冷作钣金加工领域的代表性制造大厂，全权为小车非标物理车体骨架提供板材定制加工。</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col sm:flex-row gap-6 items-center">
+        <div class="w-40 h-28 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+          <img src="月之恒.jpg" alt="月之恒网络" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-tech-gray mb-1">上海月之恒网络科技有限公司</h3>
+          <p class="text-xs text-primary mb-2 font-medium">边缘AI算法联合重构攻坚</p>
+          <p class="text-sm text-gray-500 leading-relaxed">位于上海市奉贤区肖塘路，长期致力于机器网络边缘核心侧的演进。团队与之深度协作，共同攻坚小车在动态场景下的高速避障决策大脑。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-tech-gray text-white py-12 border-t border-gray-800 mt-auto">
+    <div class="container mx-auto px-4 md:px-6 text-sm">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-lg font-tech font-bold mb-4 text-secondary"><i class="fa fa-cube mr-2"></i>天枢智行</h3>
+                <p class="text-gray-400 leading-relaxed">面向未来的 AIoT 新型智能物流研发项目，整合顶尖校企合作生态。</p>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-4 text-gray-300">项目快捷导航</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="index.html" class="hover:text-white">&rarr; 首页</a></li>
+                    <li><a href="技术展示.html" class="hover:text-white">&rarr; 核心技术展示</a></li>
+                    <li><a href="探索更多.html" class="hover:text-white">&rarr; 新型物流模式</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-4 text-gray-300">联系我们</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><i class="fa fa-user mr-2 text-primary"></i> 负责人：陈睿阳</li>
+                    <li><i class="fa fa-phone mr-2 text-primary"></i> +86 159 0217 4179</li>
+                    <li><i class="fa fa-envelope mr-2 text-primary"></i> cn201056@qq.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-6 text-center text-xs text-gray-500">
+            <p>&copy; 2026 天枢智行 智能开发交付团队. 保留所有权利。</p>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      window.scrollY > 40 ? navbar.classList.add('navbar-scrolled') : navbar.classList.remove('navbar-scrolled');
+    });
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    
+    // 异步加载流控制
+    const fadeElements = document.querySelectorAll('.fade-in');
+    function checkFade() {
+      fadeElements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+          el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+          el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        }
+      });
+    }
+    window.addEventListener('scroll', checkFade);
+    window.addEventListener('load', checkFade);
+    checkFade();
+  </script>
+</body>
+</html>

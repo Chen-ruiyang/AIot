@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天枢智行 - AIoT 破局者</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#409EFF',
+                        'primary-dark': '#2C7BE5',
+                        secondary: '#00C2FF',
+                        accent: '#9D4EDD',
+                        'tech-gray': '#1E293B',
+                        'tech-light': '#F8FAFC'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow': '0 0 15px rgba(64, 158, 255, 0.4)',
+                        'glow-lg': '0 0 25px rgba(64, 158, 255, 0.6)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow { text-shadow: 0 2px 10px rgba(64, 158, 255, 0.5); }
+            .bg-grid {
+                background-image: linear-gradient(rgba(64, 158, 255, 0.08) 1px, transparent 1px),
+                                  linear-gradient(90deg, rgba(64, 158, 255, 0.08) 1px, transparent 1px);
+                background-size: 30px 30px;
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 20px rgba(0,0,0,0.1), 0 0 15px rgba(64, 158, 255, 0.2);
+            }
+        }
+    </style>
+    <style>
+        html { scroll-behavior: smooth; }
+        .fade-in { animation: fadeIn 0.8s ease forwards; opacity: 0; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .navbar-scrolled {
+            background-color: rgba(30, 41, 59, 0.95) !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 0 15px rgba(64, 158, 255, 0.3);
+        }
+        .animated-underline {
+            position: relative;
+            text-decoration: none;
+            padding-bottom: 4px;
+        }
+        .animated-underline:after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: 0; left: 0; background-color: #409EFF;
+            transition: width 0.3s ease;
+        }
+        .animated-underline:hover:after { width: 100%; }
+    </style>
+</head>
+<body class="font-inter bg-tech-light text-gray-800 bg-grid min-h-screen flex flex-col">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-tech-gray border-b border-gray-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-tech font-bold text-secondary flex items-center gap-2">
+                    <img src="AIot的logo.png" alt="Logo" width="32" height="32" class="rounded-full">
+                    <span class="text-shadow">天枢智行</span>
+                </a>
+                <div class="hidden md:flex items-center gap-6 text-gray-300 font-medium">
+                    <a href="index.html" class="animated-underline text-white font-semibold">首页</a>
+                    <a href="技术展示.html" class="animated-underline hover:text-white transition-colors">技术展示</a>
+                    <a href="探索更多.html" class="animated-underline hover:text-white transition-colors">新型模式</a>
+                    <a href="团队介绍.html" class="animated-underline hover:text-white transition-colors">团队介绍</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-tech-gray border-t border-gray-800 px-4 py-3 space-y-3">
+            <a href="index.html" class="block text-white font-medium pl-2 border-l-2 border-primary">首页</a>
+            <a href="技术展示.html" class="block text-gray-300 hover:text-white pl-2">技术展示</a>
+            <a href="探索更多.html" class="block text-gray-300 hover:text-white pl-2">新型模式</a>
+            <a href="团队介绍.html" class="block text-gray-300 hover:text-white pl-2">团队介绍</a>
+        </div>
+    </nav>
+
+    <header class="pt-36 pb-20 bg-gradient-to-br from-primary/10 to-secondary/5 relative overflow-hidden flex-grow">
+        <div class="absolute top-0 right-0 w-96 h-96 border-4 border-primary/10 rounded-full blur-3xl -z-10"></div>
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-tech font-bold text-tech-gray mb-6 text-shadow">
+                AIoT 智能物流的<span class="text-primary">破局者</span>
+            </h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                整合软硬件协同生态，打造具备高精度避障、多设备联动和智能决策的智慧运输新范式。
+            </p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="技术展示.html" class="px-8 py-3 bg-primary text-white rounded-full shadow-glow hover:shadow-glow-lg hover:bg-primary-dark transition-all font-medium">
+                    进入技术展示 <i class="fa fa-angle-right ml-1"></i>
+                </a>
+                <a href="团队介绍.html" class="px-8 py-3 bg-white text-primary border border-primary rounded-full hover:bg-primary/5 transition-all font-medium">
+                    了解核心团队
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-tech-light p-6 rounded-xl border border-gray-100 card-hover">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary text-xl mb-4"><i class="fa fa-cogs"></i></div>
+                    <h3 class="text-lg font-bold text-tech-gray mb-2">硬核技术架构</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">双视频协同演示，全方位展示小车非标高刚性物理底盘及自主决策大脑。</p>
+                    <a href="技术展示.html" class="text-primary text-sm font-semibold hover:underline">查看视频与源码 &rarr;</a>
+                </div>
+                <div class="bg-tech-light p-6 rounded-xl border border-gray-100 card-hover">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary text-xl mb-4"><i class="fa fa-cubes"></i></div>
+                    <h3 class="text-lg font-bold text-tech-gray mb-2">新型物流模式</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">打破传统人工搬运及高成本输送带壁垒，实现低成本、模块化的工业级搬运。</p>
+                    <a href="探索更多.html" class="text-primary text-sm font-semibold hover:underline">探索行业破局 &rarr;</a>
+                </div>
+                <div class="bg-tech-light p-6 rounded-xl border border-gray-100 card-hover">
+                    <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center text-accent text-xl mb-4"><i class="fa fa-users"></i></div>
+                    <h3 class="text-lg font-bold text-tech-gray mb-2">强大校企生态</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">由李烁琛等顶级双师型老师指导，联合棣欧智能、明佳机械等4家企业共同研发。</p>
+                    <a href="团队介绍.html" class="text-primary text-sm font-semibold hover:underline">了解合作详情 &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-tech-gray text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+                <div>
+                    <h3 class="text-lg font-tech font-bold mb-4 text-secondary"><i class="fa fa-cube mr-2"></i>天枢智行</h3>
+                    <p class="text-gray-400 leading-relaxed">面向未来的 AIoT 新型智能物流研发项目，整合顶尖校企合作生态。</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-300">项目快捷导航</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="技术展示.html" class="hover:text-white">&rarr; 核心技术展示</a></li>
+                        <li><a href="探索更多.html" class="hover:text-white">&rarr; 新型物流模式</a></li>
+                        <li><a href="团队介绍.html" class="hover:text-white">&rarr; 团队专家与企业合作</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-300">联系我们 / 商务对接</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa fa-user mr-2 text-primary"></i> 负责人：陈睿阳</li>
+                        <li><i class="fa fa-phone mr-2 text-primary"></i> +86 159 0217 4179</li>
+                        <li><i class="fa fa-envelope mr-2 text-primary"></i> cn201056@qq.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-xs text-gray-500">
+                <p>&copy; 2026 天枢智行 智能开发交付团队. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            window.scrollY > 40 ? navbar.classList.add('navbar-scrolled') : navbar.classList.remove('navbar-scrolled');
+        });
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>
